@@ -12,10 +12,6 @@ This bug has been reported here: [https://github.com/domaindrivendev/Swashbuckle
 **Issue description**
 If any controller inherits a generic class (base controller), Swagger cannot generate the swagger.json while IncludeXmlComments() is activated.
 
-**Code**
-I uploaded a sample project so you can easily refactor the bug:
-[https://github.com/tohidazizi/swagger-IncludeXmlComments-bug](https://github.com/tohidazizi/swagger-IncludeXmlComments-bug)
-
 **Error**
 > **An unhandled exception occurred while processing the request.**
 > AmbiguousMatchException: Ambiguous match found.
@@ -52,7 +48,7 @@ Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpCon
 
 `curl -X PUT http://localhost:58714/api/entityone/123 \
   -H 'Content-Type: application/json' \
-  -d '{"id": 123, "name": "Entity One with ID 280818165."}'`
+  -d '{"id": 123, "name": "Edited name."}'`
 
 `curl -X DELETE http://localhost:58714/api/entityone/123`
 
