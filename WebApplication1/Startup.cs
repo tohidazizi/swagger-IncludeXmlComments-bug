@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace WebApplication1
 {
@@ -25,6 +26,12 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "My Web API", Version = "v1" });
+                c.IncludeXmlComments(GetXmlCommentsPath());
+                c.DescribeAllEnumsAsStrings();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,6 +43,14 @@ namespace WebApplication1
             }
 
             app.UseMvc();
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My Web API Ver 1.0"));
+        }
+
+        private string GetXmlCommentsPath()
+        {
+            var commentsFileName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name + ".XML";
+            return System.IO.Path.Combine(AppContext.BaseDirectory, commentsFileName);
         }
     }
 }

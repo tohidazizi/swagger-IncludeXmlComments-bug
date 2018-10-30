@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApplication1</name>
+    </assembly>
+    <members>
+        <member name="M:WebApplication1.Controllers.ValuesController.Get">
+            <summary>
+            Gets Values.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.ValuesController.Get(System.Int32)">
+            <summary>
+            Gets a Value.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.ValuesController.Post(System.String)">
+            <summary>
+            Posts a Value.
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:WebApplication1.Controllers.ValuesController.Put(System.Int32,System.String)">
+            <summary>
+            Puts a Value.
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+    </members>
+</doc>
